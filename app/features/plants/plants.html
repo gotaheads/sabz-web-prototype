@@ -1,0 +1,17 @@
+<section class="row ">
+  <plants>
+    <count ng-bind="plants.plants.TotalRecordCount"></count>
+    <plant class="col col-md-4"
+      ng-repeat="plant in plants.plants.Items">
+
+      <common-name ng-bind="plant.CommonName"></common-name><br>
+      <photo ng-if="plant.Photo" ><img ng-src="{{plant.Photo.Url}}"> </photo><br>
+
+      <botanic-name ng-bind="plant.BotanicName"></botanic-name><br>
+
+    </plant>
+
+  </plants>
+
+</section>
+
