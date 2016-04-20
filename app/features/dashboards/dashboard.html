@@ -1,8 +1,9 @@
 <section class="row ">
+  <h2 ng-bind="dashboard.user.profile.username"></h2>
   <palette-form>
     <form ng-submit="palettes.register(palettes.paletteNew)">
       <label>Palette name</label>
-      <input class="form-control" ng-model="main.paletteNew.name"
+      <input class="form-control" ng-model="dashboard.paletteNew.name"
       autofocus>
       <br>
       <button class="btn btn-primary">Create New Pallete</button>

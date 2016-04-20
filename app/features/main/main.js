@@ -15,7 +15,7 @@ angular.module('sabzPrototypeApp')
     ctrl.register = function(register) {
       Users.register(register).then(function(user) {
         $log.info('registered ', user.username);
-        $location.path('/dashboards/'+ user.username);
+        $location.path('/dashboards/'+ user.profile.username);
       })
     }
 

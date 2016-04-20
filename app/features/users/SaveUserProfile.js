@@ -6,10 +6,11 @@ angular.module('sabzPrototypeApp')
 
       SaveUserProfile.save = function (user) {
         var deferred = $q.defer();
+        $log.info('SaveUserProfile.save ', user, user.profile);
 
         Firebases.userRef(user.uid).then(function (userRef) {
           userRef.set(user.profile, function onComplete() {
-
+            deferred.resolve(user);
 
           });
 

@@ -1,22 +1,31 @@
 angular.module('sabzPrototypeApp')
   .factory('FindUserProfile',
     function ($http, $q, $log,
-              Validations, Firebases, AuthWithPassword) {
+              Validations, Firebases, GetAuth) {
       var FindUserProfile = {}, isDefined = Validations.isDefined, isEmpty = Validations.isEmpty;
 
-      FindUserProfile.find = function (uid) {
+      FindUserProfile.find = function () {
+        $log.info('FindUserProfile.find...');
         var deferred = $q.defer();
+        GetAuth.get().then(function(user) {
+          if(!isDefined(user)) {
+            $log.info('Not authenticated...');
+            deferred.reject();
+          }
 
-        Firebases.userRef(uid).then(function (userRef) {
-          userRef.once('value', function (snap) {
-            var user = snap.val();
-            if (!user) {
-              return;
-            }
-            deferred.resolve(user);
+          $log.info('FindUserProfile.find', user.uid);
+          Firebases.userRef(user.uid).then(function (userRef) {
+            userRef.once('value', function (snap) {
+              var profile = snap.val();
+              if (!profile) {
+                $log.info('No profile found...');
+                return;
+              }
+              user.profile = profile
+              deferred.resolve(user);
+            });
           });
-
-        });
+        })
 
         return deferred.promise;
       }
