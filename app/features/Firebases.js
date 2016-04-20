@@ -6,7 +6,21 @@ angular.module('sabzPrototypeApp')
       var deferred;
       var Firebases = {}, isDefined = Validations.isDefined, isEmpty = Validations.isEmpty;
       var rootRef = function() {
-        return new Firebase('https://incandescent-inferno-4348.firebaseio.com/');
+        return new Firebase('https://sabz.firebaseio.com/');
+      }
+
+      //sabz.firebaseio.com
+      //incandescent-inferno-4348
+      //userRef = rootRef.child('users').child(user.uid);
+
+      Firebases.userRef = function (uid) {
+        return Firebases.authRef().then(function(authRef) {
+          return authRef.child('users').child(uid);
+        })
+      }
+
+      Firebases.authRef = function () {
+        return Firebases.childRef('web/uauth');
       }
 
       Firebases.rootRef = function () {

@@ -1,13 +1,16 @@
 <section class="row ">
   <register>
     <form ng-submit="main.register(main.registerNew)">
-      <label>Your name</label>
-      <input class="form-control" ng-model="main.registerNew.name"
+      <label>Username</label>
+      <input class="form-control" ng-model="main.registerNew.profile.username"
+             placeholder="Pick your username"
       autofocus>
       <label>Email</label>
       <input class="form-control" ng-model="main.registerNew.email">
+      <label>Password</label>
+      <input type="password" class="form-control" ng-model="main.registerNew.password">
+      <br>
       <button class="btn btn-primary">Register</button>
-
     </form>
     <br>
     Or

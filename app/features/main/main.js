@@ -11,11 +11,11 @@ angular.module('sabzPrototypeApp')
   .controller('MainCtrl', function ($log, $location, Users) {
     var ctrl = this;
     $log.info('MainCtrl');
-    ctrl
+
     ctrl.register = function(register) {
-      Users.register(register).then(function(userKey) {
-        $log.info('registered ', userKey);
-        $location.path('/palettes/'+ userKey);
+      Users.register(register).then(function(user) {
+        $log.info('registered ', user.username);
+        $location.path('/dashboards/'+ user.username);
       })
     }
 

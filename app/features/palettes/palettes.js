@@ -8,9 +8,11 @@
  * Controller of the sabzPrototypeApp
  */
 angular.module('sabzPrototypeApp')
-  .controller('PalletesCtrl', function ($log, Palletes) {
+  .controller('PalletesCtrl', function ($log, $routeParams, Palletes) {
     var ctrl = this;
-    $log.info('PalletesCtrl');
+    var userKey= $routeParams.userKey;
+
+    $log.info('PalletesCtrl ', userKey);
 
 
     Palletes.loadAll().then(function (palettes) {

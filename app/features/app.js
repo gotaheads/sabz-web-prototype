@@ -27,12 +27,22 @@ angular
         controller: 'MainCtrl',
         controllerAs: 'main'
       })
-      .when('/register', {
+      .when('/dashboards/:username', {
+        templateUrl: 'features/dashboards/dashboard.html',
+        controller: 'DashboardCtrl',
+        controllerAs: 'dashboard'
+      })
+      .when('/login', {
         templateUrl: 'features/register/register.html',
         controller: 'RegisterCtrl',
         controllerAs: 'register'
       })
-      .when('/palettes/:userKey', {
+      .when('/login', {
+        templateUrl: 'features/login/login.html',
+        controller: 'LoginCtrl',
+        controllerAs: 'login'
+      })
+      .when('/palettes/:palette', {
         templateUrl: 'features/palettes/palettes.html',
         controller: 'PalletesCtrl',
         controllerAs: 'palettes'
