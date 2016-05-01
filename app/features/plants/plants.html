@@ -1,10 +1,11 @@
 <section class="row ">
   <plants>
     <count ng-bind="plants.plants.TotalRecordCount"></count>
-    <plant class="col col-md-4"
+    <plant class="col col-md-3" style="min-height: 250px;"
       ng-repeat="plant in plants.plants.Items">
-
+      <h4 ng-bind="plant.Id"></h4><br>
       <common-name ng-bind="plant.CommonName"></common-name><br>
+
       <photo ng-if="plant.Photo" ><img ng-src="{{plant.Photo.Url}}"> </photo><br>
 
       <botanic-name ng-bind="plant.BotanicName"></botanic-name><br>

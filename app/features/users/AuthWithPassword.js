@@ -1,7 +1,7 @@
 angular.module('sabzPrototypeApp')
   .factory('AuthWithPassword',
     function ($http, $q, $log,
-              Validations, Firebases) {
+              Validations, Firebases, UserSession) {
       var AuthWithPassword = {}, isDefined = Validations.isDefined, isEmpty = Validations.isEmpty;
       AuthWithPassword.auth = function (user) {
         var deferred = $q.defer();
@@ -13,6 +13,7 @@ angular.module('sabzPrototypeApp')
               return;
             }
 
+            Users.session.save(found);
             deferred.resolve(found);
 
           });

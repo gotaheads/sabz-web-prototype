@@ -8,9 +8,9 @@ angular.module('sabzPrototypeApp')
         $log.info('FindUserProfile.find...');
         var deferred = $q.defer();
         GetAuth.get().then(function(user) {
-          if(!isDefined(user)) {
+          if(isEmpty(user)) {
             $log.info('Not authenticated...');
-            deferred.reject();
+            return deferred.reject();
           }
 
           $log.info('FindUserProfile.find', user.uid);

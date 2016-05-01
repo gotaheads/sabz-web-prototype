@@ -1,10 +1,11 @@
 angular.module('sabzPrototypeApp')
-  .factory('Palletes',
+  .factory('Sabz',
     function ($http, $q, $log,
               Validations, Firebases, PalleteData) {
-      var Palletes = {data:PalleteData}, isDefined = Validations.isDefined, isEmpty = Validations.isEmpty;
-//https://plantplanner.azurewebsites.net/apiv1/palettes
-      Palletes.save = function (pallete) {
+      var Sabz = {}, isDefined = Validations.isDefined, isEmpty = Validations.isEmpty;
+
+      
+      Sabz.save = function (pallete) {
         Firebases.rootRef('palletes').then(function (entities) {
           var newRef = entities.push(pallete,function(error) {
             if (error) {
@@ -18,16 +19,7 @@ angular.module('sabzPrototypeApp')
         })
       }
 
-
-      Palletes.loadAll = function () {
-        //var deferred = $q.defer();
-        return $http.get('https://plantplanner.azurewebsites.net/apiv1/palettes').then(function(res) {
-          return res.data;
-        })
-        //return deferred.promise;
-      }
-
-      return Palletes;
+      return Sabz;
 
 
     })

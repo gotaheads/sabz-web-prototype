@@ -18,7 +18,8 @@ angular
     'ngTouch',
     'sabzPrototypeApp.messages',
     'sabzPrototypeApp.validations',
-    'uuid4'
+    'uuid4',
+    'ngStorage'
   ])
   .config(function ($routeProvider) {
     $routeProvider

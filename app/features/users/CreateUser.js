@@ -1,7 +1,8 @@
 angular.module('sabzPrototypeApp')
   .factory('CreateUser',
     function ($http, $q, $log,
-              Validations, Firebases, AuthWithPassword, SaveUserProfile) {
+              Validations, Firebases, AuthWithPassword, 
+              SaveUserProfile, UserSession) {
       var CreateUser = {}, isDefined = Validations.isDefined, isEmpty = Validations.isEmpty;
 
       CreateUser.create = function (toCreate) {
@@ -18,6 +19,7 @@ angular.module('sabzPrototypeApp')
               authenticated.profile = toCreate.profile;
               return SaveUserProfile.save(authenticated);
             }).then(function(user) {
+              Users.session.save(user);
               deferred.resolve(user);
             });
           });

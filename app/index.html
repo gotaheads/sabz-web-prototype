@@ -20,7 +20,7 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div class="header">
+    <div class="header" ng-controller="NavCtrl as nav">
       <div class="navbar navbar-default" role="navigation">
         <div class="container">
           <div class="navbar-header">
@@ -39,9 +39,12 @@
 
             <ul class="nav navbar-nav">
               <li class="active"><a href="#/">Home</a></li>
-              <li class="active"><a href="#/plants">Plants</a></li>
-              <li class="active"><a href="#/login">Login</a></li>
-              <li class="active"><a href="#/logout">Logout</a></li>
+              <li class=""><a href="#/plants">Plants</a></li>
+              <li class="" ng-if="!nav.user"><a ng-href="#/dashboard/{{nav.user.username}}">Dashboard</a></li>
+
+              <li class="" ng-if="!nav.user"><a href="#/login">Login</a></li>
+
+              <li class="" ng-if="nav.user"><a ng-href="#/logout">Logout</a></li>
 
             </ul>
           </div>
@@ -72,6 +75,7 @@
     <script src="bower_components/firebase/firebase.js"></script>
     <script src="bower_components/node-uuid/uuid.js"></script>
     <script src="bower_components/angular-uuid4/angular-uuid4.js"></script>
+    <script src="bower_components/ngstorage/ngStorage.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -89,6 +93,7 @@
     <script src="features/users/Logout.js"></script>
     <script src="features/users/FindUserProfile.js"></script>
     <script src="features/users/SaveUserProfile.js"></script>
+    <script src="features/users/UserSession.js"></script>
 
     <script src="features/palettes/palettes.js"></script>
     <script src="features/plants/plants.js"></script>
@@ -97,7 +102,9 @@
     <script src="features/dashboards/dashboard.js"></script>
     <script src="features/login/login.js"></script>
 
+    <script src="features/palettes/PaletteData.js"></script>
 
+    <script src="features/nav/nav.js"></script>
     <!-- endbuild -->
 </body>
 </html>

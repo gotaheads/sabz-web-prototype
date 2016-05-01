@@ -88,7 +88,7 @@ angular.module('sabzPrototypeApp.validations', [])
         if (typeof(data) == 'number' || typeof(data) == 'boolean') {
           return false;
         }
-        if (typeof(data) == 'undefined' || data === null) {
+        if (typeof(data) == 'undefined' || data == null) {
           return true;
         }
         if (typeof(data.length) != 'undefined') {

@@ -21,12 +21,19 @@ angular.module('sabzPrototypeApp')
        */
       Plants.loadAll = function () {
         deferred = isDefined(deferred)?deferred:$q.defer();
-        return $http.get('http://plantplanner.azurewebsites.net/apiv1/plants').then(function(res) {
+        return $http.get('http://plantplanner.azurewebsites.net/apiv1/plants?pageNo=1&pageSize=200').then(function(res) {
           return res.data;
         })
         //return deferred.promise;
       }
 
+      Plants.load = function (id) {
+        deferred = isDefined(deferred)?deferred:$q.defer();
+        return $http.get('http://plantplanner.azurewebsites.net/apiv1/plants/' + id).then(function(res) {
+          return res.data;
+        })
+        //return deferred.promise;
+      }
       return Plants;
 
 
