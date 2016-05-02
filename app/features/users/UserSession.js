@@ -5,13 +5,20 @@ angular.module('sabzPrototypeApp')
               Validations, $sessionStorage) {
       var UserSession = {}, isDefined = Validations.isDefined, isEmpty = Validations.isEmpty;
 
-      UserSession.user = function () {
 
-        return ($sessionStorage.user?$q.when($sessionStorage.user):$q.reject());
+
+      UserSession.userProfile = function () {
+        return ($sessionStorage.userProfile?$q.when($sessionStorage.userProfile):$q.reject());
       }
 
-      UserSession.save = function (user) {
-        $sessionStorage.user = user;
+      UserSession.save = function (userProfile) {
+        $sessionStorage.userProfile = userProfile;
+        return UserSession.userProfile();
+      }
+
+      UserSession.logout = function () {
+        $sessionStorage.userProfile = undefined;
+        return $q.when(undefined);
       }
 
       return UserSession;

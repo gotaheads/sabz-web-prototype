@@ -4,7 +4,9 @@ angular.module('sabzPrototypeApp')
               Validations, Firebases, PalleteData) {
       var Sabz = {}, isDefined = Validations.isDefined, isEmpty = Validations.isEmpty;
 
-      
+      sabzAccount = {username:'sabz', email:'gotahiroki@gmail.com'}
+      //12345
+
       Sabz.save = function (pallete) {
         Firebases.rootRef('palletes').then(function (entities) {
           var newRef = entities.push(pallete,function(error) {

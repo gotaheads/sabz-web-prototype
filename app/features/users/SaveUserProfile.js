@@ -11,7 +11,6 @@ angular.module('sabzPrototypeApp')
         Firebases.userRef(user.uid).then(function (userRef) {
           userRef.set(user.profile, function onComplete() {
             deferred.resolve(user);
-
           });
 
         });

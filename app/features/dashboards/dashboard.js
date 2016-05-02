@@ -16,7 +16,9 @@ angular.module('sabzPrototypeApp')
       $log.info('DashboardCtrl ', user);
       ctrl.user = user;
     })
+
     ctrl.paletteNew = Palletes.data.japaneseGarden;
+
     ctrl.create = function (palette) {
       
 
