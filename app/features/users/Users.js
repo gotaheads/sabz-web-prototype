@@ -2,11 +2,11 @@ angular.module('sabzPrototypeApp')
   .factory('Users',
     function ($http, $q, $log,
               Validations, CreateUser, FindUser,
-              AuthWithPassword, UserSession) {
+              AuthWithPassword, UserSession, Login) {
       var Users = {}, isDefined = Validations.isDefined, isEmpty = Validations.isEmpty;
 
       Users.user = FindUser.find;
-      Users.login = AuthWithPassword.auth;
+      Users.login = Login.login;
       Users.register = CreateUser.create;
       Users.session =  UserSession;
       return Users;

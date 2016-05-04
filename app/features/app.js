@@ -33,15 +33,20 @@ angular
         controller: 'DashboardCtrl',
         controllerAs: 'dashboard'
       })
-      .when('/login', {
-        templateUrl: 'features/register/register.html',
-        controller: 'RegisterCtrl',
-        controllerAs: 'register'
-      })
+      // .when('/login', {
+      //   templateUrl: 'features/register/register.html',
+      //   controller: 'RegisterCtrl',
+      //   controllerAs: 'register'
+      // })
       .when('/login', {
         templateUrl: 'features/login/login.html',
         controller: 'LoginCtrl',
         controllerAs: 'login'
+      })
+      .when('/logout', {
+        templateUrl: 'features/logout/logout.html',
+        controller: 'LogoutCtrl',
+        controllerAs: 'logout'
       })
       .when('/palettes/:palette', {
         templateUrl: 'features/palettes/palettes.html',

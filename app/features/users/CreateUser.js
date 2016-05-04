@@ -17,12 +17,14 @@ angular.module('sabzPrototypeApp')
             $log.info('CreateUser.create created ', toCreate.email);
 
             AuthWithPassword.auth(toCreate).then(function(authenticated) {
-              authenticated.profile = toCreate.profile;
-              $log.info('CreateUser.create saving profile ', toCreate.profile.username);
-              return SaveUserProfile.save(authenticated);
-            }).then(function(user) {
-              UserSession.save(user.profile);
-              deferred.resolve(user);
+              var userProfile = toCreate.profile;
+              userProfile.uid = authenticated.uid;
+              
+              $log.info('CreateUser.create saving profile ', userProfile);
+              return SaveUserProfile.save(userProfile);
+            }).then(function(userProfile) {
+              UserSession.start(userProfile);
+              deferred.resolve(userProfile);
             });
           });
         });

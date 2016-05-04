@@ -4,15 +4,13 @@ angular.module('sabzPrototypeApp')
               Validations, Firebases, AuthWithPassword) {
       var SaveUserProfile = {}, isDefined = Validations.isDefined, isEmpty = Validations.isEmpty;
 
-      SaveUserProfile.save = function (user) {
+      SaveUserProfile.save = function (userProfile) {
         var deferred = $q.defer();
-        $log.info('SaveUserProfile.save ', user, user.profile);
-
-        Firebases.userRef(user.uid).then(function (userRef) {
-          userRef.set(user.profile, function onComplete() {
-            deferred.resolve(user);
+        $log.info('SaveUserProfile.save ', userProfile);
+        Firebases.userRef(userProfile.uid).then(function (userRef) {
+          userRef.set(userProfile, function onComplete() {
+            deferred.resolve(userProfile);
           });
-
         });
 
         return deferred.promise;

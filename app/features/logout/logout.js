@@ -12,7 +12,7 @@ angular.module('sabzPrototypeApp')
     var ctrl = this;
     $log.info('LogoutCtrl');
 
-    Users.logout().then(function () {
+    Users.session.logout().then(function () {
       $location.path('/');
     })
 
