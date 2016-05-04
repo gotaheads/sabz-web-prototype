@@ -19,7 +19,8 @@ angular
     'sabzPrototypeApp.messages',
     'sabzPrototypeApp.validations',
     'uuid4',
-    'ngStorage'
+    'ngStorage',
+    'firebase'
   ])
   .config(function ($routeProvider) {
     $routeProvider

@@ -17,7 +17,19 @@
     <br>
     <button class="btn btn-info">Sign in with Google</button>
 
+
   </register>
 
+
 </section>
+
+<section style="margin-top: 50px;">
+  <palettes>
+    <pallete ng-repeat="key in main.palleteKeys"
+             ng-init="summary = main.toSummary(key)">
+      <a ng-href="#/palettes/{{summary.owner}}/{{summary.name}}">{{summary.owner}}/{{summary.name}}</a>
+    </pallete>
+  </palettes>
+</section>
+
 
