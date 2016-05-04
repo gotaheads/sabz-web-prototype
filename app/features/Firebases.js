@@ -12,6 +12,18 @@ angular.module('sabzPrototypeApp')
       //sabz.firebaseio.com
       //incandescent-inferno-4348
       //userRef = rootRef.child('users').child(user.uid);
+      var appendKey = function (key) {
+        return (isEmpty(key)?'':'/' + key);
+      }
+
+      Firebases.paletteKeyRef = function (key) {
+        return Firebases.childRef('palette-keys'+ appendKey(key));
+      }
+
+      Firebases.paletteRef = function (key) {
+        return Firebases.childRef('palettes' + appendKey(key));
+      }
+
 
       Firebases.userRef = function (uid) {
         return Firebases.authRef().then(function(authRef) {

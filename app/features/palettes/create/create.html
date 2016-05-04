@@ -1,0 +1,23 @@
+<section class="row ">
+
+  <label>Palette owner</label>
+  <owner ng-bind="create.paletteNew.owner"></owner>
+
+  <palette-form>
+    <form ng-submit="create.create(create.paletteNew)">
+      <label>Palette name</label>
+      <input class="form-control" ng-model="create.paletteNew.name"
+      autofocus>
+      <br>
+      <label>Description</label>
+      <textarea class="form-control" ng-model="create.paletteNew.description"></textarea>
+
+      <br>
+      <button class="btn btn-primary">Create New Pallete</button>
+
+    </form>
+
+  </palette-form>
+
+</section>
+

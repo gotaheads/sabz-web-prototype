@@ -33,11 +33,6 @@ angular
         controller: 'DashboardCtrl',
         controllerAs: 'dashboard'
       })
-      // .when('/login', {
-      //   templateUrl: 'features/register/register.html',
-      //   controller: 'RegisterCtrl',
-      //   controllerAs: 'register'
-      // })
       .when('/login', {
         templateUrl: 'features/login/login.html',
         controller: 'LoginCtrl',
@@ -48,11 +43,22 @@ angular
         controller: 'LogoutCtrl',
         controllerAs: 'logout'
       })
-      .when('/palettes/:palette', {
-        templateUrl: 'features/palettes/palettes.html',
-        controller: 'PalletesCtrl',
-        controllerAs: 'palettes'
+      .when('/new/palette', {
+        templateUrl: 'features/palettes/create/create.html',
+        controller: 'CreatePaletteCtrl',
+        controllerAs: 'create'
       })
+      .when('/palettes/:owner/:name', {
+        templateUrl: 'features/palettes/view/view.html',
+        controller: 'ViewPaletteCtrl',
+        controllerAs: 'view'
+      })
+
+      // .when('/palettes/:palette', {
+      //   templateUrl: 'features/palettes/palettes.html',
+      //   controller: 'PalletesCtrl',
+      //   controllerAs: 'palettes'
+      // })
       .when('/plants', {
         templateUrl: 'features/plants/plants.html',
         controller: 'PlantsCtrl',

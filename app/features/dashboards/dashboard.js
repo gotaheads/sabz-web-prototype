@@ -8,21 +8,17 @@
  * Controller of the sabzPrototypeApp
  */
 angular.module('sabzPrototypeApp')
-  .controller('DashboardCtrl', function ($log, $routeParams, Users, Palletes) {
+  .controller('DashboardCtrl', function ($log, $location, $routeParams, Users) {
     var ctrl = this;
     var username= $routeParams.username;
 
-    Users.user().then(function(user) {
-      $log.info('DashboardCtrl ', user);
-      ctrl.user = user;
+    Users.session.userProfile().then(function(userProfile) {
+      $log.info('DashboardCtrl ', userProfile);
+      ctrl.userProfile = userProfile;
+    }, function () {
+      $location.path('/');
     })
 
-    ctrl.paletteNew = Palletes.data.japaneseGarden;
-
-    ctrl.create = function (palette) {
-      
-
-    }
 
     $log.info('DashboardCtrl ', username);
 

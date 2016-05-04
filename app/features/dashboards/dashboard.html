@@ -1,21 +1,13 @@
 <section class="row ">
 
-  <h2 ng-bind="dashboard.user.profile.username"></h2>
+  <h2 ng-bind="dashboard.userProfile.username"></h2>
 
-  <palette-form>
-    <form ng-submit="palettes.create(palettes.paletteNew)">
-      <label>Palette name</label>
-      <input class="form-control" ng-model="dashboard.paletteNew.name"
-      autofocus>
-      <br>
-      <button class="btn btn-primary">Create New Pallete</button>
+      <a class="btn btn-primary"
+         ng-href="#/new/palette">Create New Pallete</a>
 
-    </form>
-    <br>
-    <button class="btn btn-info">Fork Pallete</button>
-
-  </palette-form>
   <br>
+
+
   <palettes>
     <count ng-bind="palettes.palettes.TotalRecordCount"></count>
     <palette class="col col-md-4"

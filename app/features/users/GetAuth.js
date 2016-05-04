@@ -5,11 +5,9 @@ angular.module('sabzPrototypeApp')
       var GetAuth = {}, isDefined = Validations.isDefined, isEmpty = Validations.isEmpty;
 
       GetAuth.get = function () {
-
         return Firebases.authRef().then(function (authRef) {
           return authRef.getAuth();
         });
-
       }
 
       return GetAuth;
