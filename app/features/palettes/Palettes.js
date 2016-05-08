@@ -7,7 +7,7 @@ angular.module('sabzPrototypeApp')
       //https://plantplanner.azurewebsites.net/apiv1/palettes
 
       Palettes.toPath = function (palette) {
-        return '/palettes/' + createPalettePath(palette);
+        return '/palettes/' + PalettePaths.createPalettePath(palette);
       }
 
       var saveKey = function (pallete, key, deferred) {
